@@ -4,20 +4,20 @@ import { Client } from "@/models/client";
 export interface StreamingSession {
     id: string,
     clients: Array<Client>,
-    data: object,
+    data: any,
     createdAt: number,
     updatedAt: number
 }
 
 const sessions = new Map<string, StreamingSession>();
 
-function createSession() {
+function createSession(data: any) {
     const sessionId = uuidv4();
     const currentTime = Date.now();
     sessions.set(sessionId, {
         id: sessionId,
         clients: [],
-        data: {},
+        data,
         createdAt: currentTime,
         updatedAt: currentTime
     });
