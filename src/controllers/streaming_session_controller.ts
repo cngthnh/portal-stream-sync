@@ -11,7 +11,8 @@ function registerEvent(request: Request, response: Response, next: NextFunction)
     const headers = {
         'Content-Type': 'text/event-stream',
         'Connection': 'keep-alive',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache',
+        'X-Accel-Buffering': 'no'
     };
 
     const token = request.query.token;
